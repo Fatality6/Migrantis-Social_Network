@@ -1,4 +1,13 @@
 
 .item {
-    color:red;
+    color:rgb(255, 255, 255);
+}
+
+.item img{
+    width: 40px;
+    padding-right:10px;
+}
+
+.text{
+    margin-left:40px;
 }

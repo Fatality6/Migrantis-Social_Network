@@ -1,4 +1,8 @@
 .posts{
-    background-color: chartreuse;
+    padding-top: 20px;
 }
 
+.textarea{
+    margin-left: 10px;
+    padding-left: 10px;
+}

@@ -1,6 +1,6 @@
 .app-wrapper {
     font-family: roboto, sans-serif;    /*установил шрифт*/
-    padding-top: 5px;                  /*отступ для фиксированной шапки*/
+    padding-top: 1px;                  /*отступ для фиксированной шапки*/
     margin: auto;
     display: grid;
     width: 1200px;
@@ -14,5 +14,4 @@
 .app-content{
     grid-area: content;
     background-color: grey;
-    height: 4000px;
 }
