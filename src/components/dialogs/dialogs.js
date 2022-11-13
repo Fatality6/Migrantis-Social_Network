@@ -7,15 +7,23 @@ const Message = (props) => {
 }
 
 const Dialogs = () => {
+
+  let dialogsMessages = [
+    { id: '1', message: 'Hi !' },
+    { id: '2', message: 'how are you?' },
+    { id: '3', message: 'Where are you?' }
+  ]
+
+
   return (
     <div className={style.dialogs}>
       <div>
         <Names />
       </div>
       <div className={style.dialogItems}>
-        <Message message='Hi !' />
-        <Message message='how are you?' />
-        <Message message='Where are you?' />
+        <Message message={dialogsMessages[0].message} />
+        <Message message={dialogsMessages[1].message} />
+        <Message message={dialogsMessages[2].message} />
       </div>
     </div>);
 }

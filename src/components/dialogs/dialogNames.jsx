@@ -10,13 +10,22 @@ const NameItem = (props) => {
 }
 
 const Names = () => {
+
+  let dialogsData = [
+    { id: '1', name: 'Иван' },
+    { id: '2', name: 'Андрей' },
+    { id: '3', name: 'Олег' },
+    { id: '4', name: 'Игорь' },
+    { id: '5', name: 'Ксения' }
+  ]
+
   return (
     <div className={style.names}>
-      <NameItem name='Иван' id='1' />
-      <NameItem name='Андрей' id='2' />
-      <NameItem name='Олег' id='3' />
-      <NameItem name='Игорь' id='4' />
-      <NameItem name='Ксения' id='5' />
+      <NameItem name={dialogsData[0].name} id={dialogsData[0].id} />
+      <NameItem name={dialogsData[1].name} id={dialogsData[1].id} />
+      <NameItem name={dialogsData[2].name} id={dialogsData[2].id} />
+      <NameItem name={dialogsData[3].name} id={dialogsData[3].id} />
+      <NameItem name={dialogsData[4].name} id={dialogsData[4].id} />
     </div>
   );
 }
