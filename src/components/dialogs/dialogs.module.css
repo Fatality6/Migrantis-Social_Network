@@ -5,12 +5,12 @@
 
 .dialogNames {
     background-color: blueviolet;
-    padding:20px;
+    padding: 20px;
 }
 
 .dialogItems {
     background-color: chocolate;
-    /* padding:20px; */
+    padding: 20px;
 }
 
 .item {

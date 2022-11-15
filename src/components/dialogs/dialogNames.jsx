@@ -16,16 +16,15 @@ const Names = () => {
     { id: '2', name: 'Андрей' },
     { id: '3', name: 'Олег' },
     { id: '4', name: 'Игорь' },
-    { id: '5', name: 'Ксения' }
+    { id: '5', name: 'Игорян' },
+    { id: '6', name: 'Ксения' }
   ]
+
+  let dialogsElements = dialogsData.map(d => <NameItem name={d.name} id={d.id} />)
 
   return (
     <div className={style.names}>
-      <NameItem name={dialogsData[0].name} id={dialogsData[0].id} />
-      <NameItem name={dialogsData[1].name} id={dialogsData[1].id} />
-      <NameItem name={dialogsData[2].name} id={dialogsData[2].id} />
-      <NameItem name={dialogsData[3].name} id={dialogsData[3].id} />
-      <NameItem name={dialogsData[4].name} id={dialogsData[4].id} />
+      {dialogsElements}
     </div>
   );
 }
