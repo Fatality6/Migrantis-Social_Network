@@ -2,15 +2,11 @@ import React from 'react';
 import style from "./myposts.module.css";
 import Post from './posts/post'
 
-const Myposts = () => {
+const Myposts = (props) => {
 
-  let postsData = [
-    { id: '1', message: 'Hi world!', likes: 15 },
-    { id: '2', message: 'how are you?', likes: 20 },
-    { id: '3', message: 'Where are you?', likes: 17 }
-  ]
+  const postData = props.posts;
 
-  let postsElement = postsData.map(p => <Post message={p.message} likes={p.likes} />)
+  const postsElement = postData.map(p => <Post message={p.message} likes={p.likes} />)
 
   return (
     <div className={style.textarea}>

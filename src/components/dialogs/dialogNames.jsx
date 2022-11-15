@@ -11,7 +11,7 @@ const NameItem = (props) => {
 
 const Names = () => {
 
-  let dialogsData = [
+  const dialogsData = [
     { id: '1', name: 'Иван' },
     { id: '2', name: 'Андрей' },
     { id: '3', name: 'Олег' },
@@ -20,7 +20,7 @@ const Names = () => {
     { id: '6', name: 'Ксения' }
   ]
 
-  let dialogsElements = dialogsData.map(d => <NameItem name={d.name} id={d.id} />)
+  const dialogsElements = dialogsData.map(d => <NameItem name={d.name} id={d.id} />)
 
   return (
     <div className={style.names}>

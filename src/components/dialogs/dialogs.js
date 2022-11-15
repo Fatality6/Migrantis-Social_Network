@@ -2,18 +2,17 @@ import React from 'react';
 import Names from './dialogNames';
 import style from "./dialogs.module.css";
 
-let dialogsMessages = [
+const dialogsItems = [
   { id: '1', message: 'Hi hi hi!' },
   { id: '2', message: 'how are you?' },
   { id: '3', message: 'Where are you?' }
 ]
 
 const Message = (props) => {
-  return <div className={style.item}>{props.message}</div>
+  return <div className={style.item}>{props.item}</div>;
 }
 
-let dialogsElements = dialogsMessages
-  .map(d => <Message message={d.message} />)
+const dialogsElements = dialogsItems.map(d => <Message item={d.message} />);
 
 const Dialogs = () => {
   return (

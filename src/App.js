@@ -6,7 +6,7 @@ import Profile from './components/profile/profile';
 import News from './components/news/news';
 import Music from './components/music/music';
 import Setting from './components/setting/setting'
-import { BrowserRouter,Route,Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 const App = () => {
   return (
@@ -24,7 +24,7 @@ const App = () => {
           </Routes>
         </div>
       </div>
-      </BrowserRouter>
+    </BrowserRouter>
   );
 }
 
