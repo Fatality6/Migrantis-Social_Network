@@ -1,5 +1,6 @@
 .names {
     background-color: rgb(81, 192, 81);
+    padding: 10px;
 }
 
 .link {
@@ -8,6 +9,3 @@
     text-decoration: none;
 }
 
-.items{
-    padding: 10px;
-}

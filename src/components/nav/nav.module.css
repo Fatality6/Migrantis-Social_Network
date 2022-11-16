@@ -1,25 +1,18 @@
 .nav {
     grid-area: nav;
     background-color: rgb(35, 56, 152);
-    
 }
 
 .item {
     font-size: 24px;
-    /*размер шрифта*/
     color: #FFFFFF;
-    /*цвет текста*/
     text-decoration: none;
-    /*убрал подчёркивание ссылок*/
 }
 
 .active {
     font-size: 24px;
-    /*размер шрифта*/
     color: #4deef4;
-    /*цвет текста*/
     text-decoration: none;
-    /*убрал подчёркивание ссылок*/
 }
 
 .link {

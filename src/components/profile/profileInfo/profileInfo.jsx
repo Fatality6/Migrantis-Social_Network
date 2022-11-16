@@ -10,7 +10,7 @@ const ProfileInfo = () => {
       </div>
       <div className={style.description}>
         <img src='https://find.noeg.co.il/images/avatars/3.png' alt=''/>
-        ava+description
+        <span>description</span>
       </div>
     </div>);
 }
