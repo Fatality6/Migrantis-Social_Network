@@ -12,9 +12,9 @@ const Names = (props) => {
     </div>)
   }
 
-  const dialogsData = props.items
+  const dialogsName = props.items
 
-  const dialogsElements = dialogsData.map(d => <NameItem name={d.name} id={d.id} />)
+  const dialogsElements = dialogsName.map(d => <NameItem name={d.name} id={d.id} />)
 
   return (
     <div>
