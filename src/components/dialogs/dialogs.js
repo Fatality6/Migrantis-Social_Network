@@ -7,10 +7,10 @@ const Dialogs = (props) => {
   return (
     <div className={style.dialogs}>
       <div>
-        <Names items={props.dialogsName}/>
+        <Names state={props.state.dialogs} />
       </div>
       <div className={style.dialogItems}>
-        <Message items={props.dialogsItems} />
+        <Message state={props.state.messages} />
       </div>
     </div>);
 }

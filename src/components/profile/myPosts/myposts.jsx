@@ -3,8 +3,8 @@ import style from "./myposts.module.css";
 import Post from './posts/post'
 
 const Myposts = (props) => {
-
-  const postData = props.postsData;
+  
+  const postData = props.state.posts;
 
   const postsElement = postData.map(p => <Post message={p.message} likes={p.likes} />)
 
