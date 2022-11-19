@@ -1,7 +1,7 @@
 .header {
     width: 1200px;
     grid-area: header;
-    background-color: rgb(35, 56, 152);
+    background-color: rgb(79, 178, 224);
     position: fixed;                    /*фиксированная позиция*/
     top: 0;                             /*без отступа сверху*/
 }

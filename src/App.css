@@ -1,17 +1,20 @@
 .app-wrapper {
-    font-family: roboto, sans-serif;    /*установил шрифт*/
-    padding-top: 1px;                  /*отступ для фиксированной шапки*/
+    font-family: roboto, sans-serif;
+    /*установил шрифт*/
+    padding-top: 1px;
+    /*отступ для фиксированной шапки*/
     margin: auto;
     display: grid;
     width: 1200px;
-    grid-template-areas: 
-    "header header header"
-    "nav content content";
+    grid-template-areas:
+        "header header header"
+        "nav content content";
     grid-template-rows: 60px 1fr;
     grid-template-columns: 2fr 10fr;
 }
 
 .app-content {
     grid-area: content;
-    background-color: grey;
+    background-color: rgb(189, 190, 158);
+    height: 2000px;
 }

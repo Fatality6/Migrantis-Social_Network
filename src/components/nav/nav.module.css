@@ -1,6 +1,7 @@
 .nav {
     grid-area: nav;
-    background-color: rgb(35, 56, 152);
+    background-color: #689c5f;
+
 }
 
 .item {
@@ -11,10 +12,16 @@
 
 .active {
     font-size: 24px;
-    color: #4deef4;
+    color: #4db1f4;
     text-decoration: none;
 }
 
 .link {
     margin: 10px 0 0 20px;
+}
+
+.friends {
+    font-size: 24px;
+    color: #FFFFFF;
+    margin: 40px 0 0 50px;
 }

@@ -1,0 +1,26 @@
+.messageArea{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.itemLeft {
+    width: 35%;
+    color: rgb(85, 182, 247);
+    padding: 20px;
+    margin-bottom: 30px;
+    background-color: rgba(254, 253, 255, 0.445);
+    border-radius: 15px;
+    align-self: flex-start;
+}
+
+.itemRigth{
+    width: 35%;
+    color: rgb(102, 168, 118);
+    padding: 20px;
+    margin-bottom: 30px;
+    background-color: rgba(254, 253, 255, 0.445);
+    border-radius: 15px;
+    align-self: center;
+}

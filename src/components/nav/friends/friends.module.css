@@ -1,0 +1,17 @@
+.friends {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 20px;
+}
+
+.avatar {
+    width: 40px;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 40px;
+}
+
+.name {
+    text-align: center;
+    margin-top: -5px;
+    color: rgb(255, 255, 255);
+}
