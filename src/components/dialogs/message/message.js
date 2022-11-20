@@ -3,9 +3,8 @@ import style from './message.module.css';
 
 
 const Message = (props) => {
-
   const MessageItem = (props) => {
-    if (props.id % 2 === 0){
+    if (props.id % 2 === 0) {
       return (
         <div className={style.messageArea}>
           <div className={style.itemRigth}>{props.message}</div>
@@ -17,14 +16,32 @@ const Message = (props) => {
         </div>)
     }
   }
-  
+
   const dialogsItems = props.state
-  const dialogsElements = dialogsItems.map(d => <MessageItem message={d.message} id={d.id}/>);
+  const dialogsElements = dialogsItems.map(d => <MessageItem message={d.message} id={d.id} />);
+
+  let newMessageElement = React.createRef();
+
+  let addMessage = () => {
+    let text = newMessageElement.current.value;
+    props.addMessage(text);
+  }
 
   return (
     <div>
-      {dialogsElements}
-    </div>);
+      <div>
+        {dialogsElements}
+      </div>
+      <div className={style.formMessage}>
+        <div>
+          <textarea ref={newMessageElement} ></textarea>
+        </div>
+        <div>
+          <button onClick={addMessage} className={style.button}>отправить</button>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default Message;

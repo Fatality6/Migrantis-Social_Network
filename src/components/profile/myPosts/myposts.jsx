@@ -6,16 +6,27 @@ const Myposts = (props) => {
 
   const postData = props.state.posts;
 
-  const postsElement = postData.map(p => <Post message={p.message} likes={p.likes} avatar={props.state.info.avatar} />)
+  const postsElement = postData.map(p => <Post message={p.message} likes={p.likes} avatar={props.state.info.avatar} />);
+
+  let newPostElement = React.createRef();
+
+  let onPostChange = () => {
+    let text = newPostElement.current.value;
+    props.updateNewPostText(text);
+  }
+
+  let addPost = () => {
+    props.addPost();
+  }
 
   return (
     <div className={style.textarea}>
       <h3>Мои посты</h3>
       <div>
-        <textarea></textarea>
+        <textarea onChange={onPostChange} ref={newPostElement} value={props.state.newPostText}></textarea>
       </div>
       <div>
-        <button>Send</button>
+        <button onClick={addPost}>Send</button>
       </div>
       <div className={style.posts}>
         {postsElement}

@@ -1,4 +1,6 @@
-let state = {
+import { rerender } from '../rerender';
+
+const state = {
     profilePage: {
         posts: [
             { id: '1', message: 'Hi world!', likes: 15 },
@@ -6,7 +8,8 @@ let state = {
             { id: '3', message: 'Where are you?', likes: 17 }
         ],
         info:
-            { name: 'Олег', years: '34 года', major: 'программист', avatar: 'http://sun9-70.userapi.com/s/v1/if1/nr1D3bBwxix54uj0ylejhuhj40UynsY_AgsKXjl73keyoznveM04--etVqI83NuTPoCkGhcX.jpg?size=200x200&quality=96&crop=0,0,480,480&ava=1' }
+            { name: 'Олег', years: '34 года', major: 'программист', avatar: 'http://sun9-70.userapi.com/s/v1/if1/nr1D3bBwxix54uj0ylejhuhj40UynsY_AgsKXjl73keyoznveM04--etVqI83NuTPoCkGhcX.jpg?size=200x200&quality=96&crop=0,0,480,480&ava=1' },
+        newPostText: ''
 
     },
     messagesPage: {
@@ -33,5 +36,34 @@ let state = {
         ]
     }
 }
+
+export let addPost = () => {
+    let newPost = {
+        id: state.profilePage.posts.length + 1,
+        message: state.profilePage.newPostText,
+        likes: 0
+    };
+    state.profilePage.posts.push(newPost);
+    state.profilePage.newPostText = '';
+    rerender(state);
+}
+
+export let updateNewPostText = (newText) => {
+    state.profilePage.newPostText = newText
+    rerender(state);
+}
+
+
+
+export let addMessage = (newMessageText) => {
+    let newMessage = {
+        id: state.messagesPage.messages.length + 1,
+        message: newMessageText
+    };
+    state.messagesPage.messages.push(newMessage);
+    rerender(state);
+}
+
+
 
 export default state;
