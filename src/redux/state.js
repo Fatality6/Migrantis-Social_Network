@@ -1,5 +1,3 @@
-import { rerender } from '../rerender';
-
 const state = {
     profilePage: {
         posts: [
@@ -37,7 +35,7 @@ const state = {
     }
 }
 
-export let addPost = () => {
+export const addPost = () => {
     let newPost = {
         id: state.profilePage.posts.length + 1,
         message: state.profilePage.newPostText,
@@ -48,14 +46,14 @@ export let addPost = () => {
     rerender(state);
 }
 
-export let updateNewPostText = (newText) => {
+export const updateNewPostText = (newText) => {
     state.profilePage.newPostText = newText
     rerender(state);
 }
 
 
 
-export let addMessage = (newMessageText) => {
+export const addMessage = (newMessageText) => {
     let newMessage = {
         id: state.messagesPage.messages.length + 1,
         message: newMessageText
@@ -64,6 +62,11 @@ export let addMessage = (newMessageText) => {
     rerender(state);
 }
 
+let rerender;
+
+export const subscribe = (observer) => {
+ rerender = observer;
+}
 
 
 export default state;
