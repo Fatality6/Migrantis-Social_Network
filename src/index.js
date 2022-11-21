@@ -1,9 +1,8 @@
-import state, { subscribe } from './redux/state';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import store from './redux/state';
 import App from './App';
-import {addMessage, addPost, updateNewPostText} from './redux/state';
 
 let rerender = (state) => {
 	const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -11,14 +10,14 @@ let rerender = (state) => {
 		<React.StrictMode>
 			<App 
 				state={state} 
-				addPost={addPost} 
-				updateNewPostText={updateNewPostText} 
-				addMessage={addMessage}
+				addPost={store.addPost.bind(store)} 
+				updateNewPostText={store.updateNewPostText.bind(store)} 
+				addMessage={store.addMessage.bind(store)}
 			/>
 		</React.StrictMode>);
 
 };
 
-rerender(state);
+rerender(store.getState());
 
-subscribe(rerender);
+store.subscribe(rerender);
