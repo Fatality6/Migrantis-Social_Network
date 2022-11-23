@@ -1,6 +1,6 @@
 import React from 'react';
+import { addMessageActionCreater } from '../../../redux/state';
 import style from './message.module.css';
-
 
 const Message = (props) => {
   const MessageItem = (props) => {
@@ -25,10 +25,7 @@ const Message = (props) => {
 
   let addMessage = () => {
     let text = newMessageElement.current.value;
-    props.dispatch({
-      type: 'ADD-MESSAGE',
-      text: text
-    })
+    props.dispatch(addMessageActionCreater(text));
   }
 
   return (
