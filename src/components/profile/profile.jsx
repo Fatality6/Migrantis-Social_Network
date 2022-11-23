@@ -1,5 +1,5 @@
 import React from 'react';
-import style from "./profile.module.css";
+//import style from "./profile.module.css";
 import Myposts from "./myPosts/myposts"
 import ProfileInfo from './profileInfo/profileInfo';
 
@@ -9,8 +9,7 @@ const Profile = (props) => {
       <ProfileInfo state={props.state.info} />
       <Myposts 
         state={props.state} 
-        addPost={props.addPost} 
-        updateNewPostText={props.updateNewPostText}
+        dispatch={props.dispatch}
       />
     </div>);
 }

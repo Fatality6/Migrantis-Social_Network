@@ -9,7 +9,7 @@ let store = {
             info:
                 { name: 'Олег', years: '34 года', major: 'программист', avatar: 'http://sun9-70.userapi.com/s/v1/if1/nr1D3bBwxix54uj0ylejhuhj40UynsY_AgsKXjl73keyoznveM04--etVqI83NuTPoCkGhcX.jpg?size=200x200&quality=96&crop=0,0,480,480&ava=1' },
             newPostText: ''
-    
+
         },
         messagesPage: {
             dialogs: [
@@ -35,13 +35,10 @@ let store = {
             ]
         }
     },
-    _callsubscriber(){
-        
+    _callsubscriber() {
+
     },
-    getState(){
-        return this._state;
-    },
-    addPost() {
+    _addPost() {
         let newPost = {
             id: this._state.profilePage.posts.length + 1,
             message: this._state.profilePage.newPostText,
@@ -51,11 +48,11 @@ let store = {
         this._state.profilePage.newPostText = '';
         this._callsubscriber(this._state);
     },
-    updateNewPostText(newText) {
-        this._state.profilePage.newPostText = newText
+    _updateNewPostText(text) {
+        this._state.profilePage.newPostText = text
         this._callsubscriber(this._state);
     },
-    addMessage(newMessageText) {
+    _addMessage(newMessageText) {
         let newMessage = {
             id: this._state.messagesPage.messages.length + 1,
             message: newMessageText
@@ -63,8 +60,26 @@ let store = {
         this._state.messagesPage.messages.push(newMessage);
         this._callsubscriber(this._state);
     },
+    getState() {
+        return this._state;
+    },
     subscribe(observer) {
         this._callsubscriber = observer;
+    },
+    dispatch(action) {
+        switch (action.type) {
+            case 'ADD-POST':
+                this._addPost();
+                break;
+            case 'UPDATE-NEW-POST-TEXT':
+                this._updateNewPostText(action.text);
+                break;
+            case 'ADD-MESSAGE':
+                this._addMessage(action.text);
+                break;
+            default:
+                break;
+        }
     }
 }
 

@@ -4,6 +4,7 @@ import style from './message.module.css';
 
 const Message = (props) => {
   const MessageItem = (props) => {
+
     if (props.id % 2 === 0) {
       return (
         <div className={style.messageArea}>
@@ -24,7 +25,10 @@ const Message = (props) => {
 
   let addMessage = () => {
     let text = newMessageElement.current.value;
-    props.addMessage(text);
+    props.dispatch({
+      type: 'ADD-MESSAGE',
+      text: text
+    })
   }
 
   return (
