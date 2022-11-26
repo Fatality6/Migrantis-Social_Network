@@ -1,5 +1,5 @@
 import React from 'react';
-import { addMessageActionCreater } from '../../../redux/state';
+import { addMessageActionCreater } from '../../../redux/dialiogsReducer';
 import style from './message.module.css';
 
 const Message = (props) => {
