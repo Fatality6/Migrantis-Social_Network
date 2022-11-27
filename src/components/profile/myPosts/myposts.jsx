@@ -1,33 +1,32 @@
 import React from 'react';
-import { addPostActionCreater, updateNewPostTextActionCreater } from '../../../redux/profileReducer';
 import style from "./myposts.module.css";
 import Post from './posts/post'
 
 const Myposts = (props) => {
 
-  const postData = props.state.posts;
+  const postData = props.posts;
 
-  const postsElement = postData.map(p => <Post message={p.message} likes={p.likes} avatar={props.state.info.avatar} />);
+  const postsElement = postData.map(p => <Post message={p.message} likes={p.likes} avatar={props.avatar} />);
 
   let newPostElement = React.createRef();
 
-  let onPostChange = () => {
-    let text = newPostElement.current.value;
-    props.dispatch(updateNewPostTextActionCreater(text));
+  let onAddPost = () => {
+    props.addPost();
   }
 
-  let addPost = () => {
-    props.dispatch(addPostActionCreater());
+  let onPostChange = () => {
+    let text = newPostElement.current.value;
+    props.updateNewPostText(text);
   }
 
   return (
     <div className={style.textarea}>
       <h3>Мои посты</h3>
       <div>
-        <textarea onChange={onPostChange} ref={newPostElement} value={props.state.newPostText}></textarea>
+        <textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText}></textarea>
       </div>
       <div>
-        <button onClick={addPost}>Send</button>
+        <button onClick={onAddPost}>Send</button>
       </div>
       <div className={style.posts}>
         {postsElement}

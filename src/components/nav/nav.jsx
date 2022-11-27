@@ -4,6 +4,7 @@ import Friends from './friends/friends';
 import style from './nav.module.css';
 
 const Nav = (props) => {
+let state = props.store.getState();
   
   return (
     <nav className={style.nav}>
@@ -36,7 +37,7 @@ const Nav = (props) => {
         <h3 className={style.friends}>
           Друзья
         </h3>
-        <Friends state={props.state.friends} />
+        <Friends state={state.sideBar.friends} />
       </div>
     </nav>);
 }

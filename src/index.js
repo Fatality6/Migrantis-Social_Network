@@ -8,10 +8,7 @@ let rerender = (state) => {
 	const root = ReactDOM.createRoot(document.getElementById('root'));
 	root.render(
 		<React.StrictMode>
-			<App
-				state={state}
-				dispatch={store.dispatch.bind(store)}
-			/>
+			<App store={store} />
 		</React.StrictMode>);
 
 };

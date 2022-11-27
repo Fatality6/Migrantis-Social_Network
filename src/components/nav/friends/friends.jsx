@@ -2,7 +2,7 @@ import React from 'react';
 import style from './friends.module.css';
 
 const Friends = (props) => {
-
+  
   const FriendItem = (props) => {
     return (
       <div className={style.item}>

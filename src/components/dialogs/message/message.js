@@ -1,8 +1,9 @@
 import React from 'react';
-import { addMessageActionCreater } from '../../../redux/dialiogsReducer';
 import style from './message.module.css';
 
 const Message = (props) => {
+
+
   const MessageItem = (props) => {
 
     if (props.id % 2 === 0) {
@@ -24,8 +25,12 @@ const Message = (props) => {
   let newMessageElement = React.createRef();
 
   let addMessage = () => {
+    props.addMessage();
+  }
+   
+  let onMessageChange = () => {
     let text = newMessageElement.current.value;
-    props.dispatch(addMessageActionCreater(text));
+    props.updateNewMessageText(text);
   }
 
   return (
@@ -35,7 +40,7 @@ const Message = (props) => {
       </div>
       <div className={style.formMessage}>
         <div>
-          <textarea ref={newMessageElement} ></textarea>
+          <textarea onChange={onMessageChange} ref={newMessageElement} value={props.newMessageText} ></textarea>
         </div>
         <div>
           <button onClick={addMessage} className={style.button}>отправить</button>
