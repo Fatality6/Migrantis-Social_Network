@@ -16,7 +16,7 @@ const App = (props) => {
         <Nav store={props.store}/>
         <div className='app-content'>
           <Routes>
-            <Route path='/profile/*' element={<Profile store={props.store} />} />
+            <Route path='/*' element={<Profile store={props.store} />} />
             <Route path='/dialogs/*' element={<Dialogs store={props.store} />} />
             <Route path='/news/*' element={<News />} />
             <Route path='/music/*' element={<Music />} />
