@@ -28,6 +28,11 @@ const Nav = () => {
         </NavLink>
       </div>
       <div className={style.link}>
+        <NavLink to="/users" className={e => e.isActive ? style.active : style.item}>
+          Поиск
+        </NavLink>
+      </div>
+      <div className={style.link}>
         <NavLink to="/setting" className={e => e.isActive ? style.active : style.item}>
           Настройки
         </NavLink>

@@ -1,0 +1,37 @@
+.user {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.ava {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-right: 20px;
+}
+
+.img img{
+    width: 70px;
+}
+
+.btn {
+    color: blueviolet;
+}
+
+.info {
+    display: flex;
+    width: 50%;
+    background-color: rgba(117, 117, 124, 0.548);
+    justify-content: space-between;
+    border-radius: 20px;
+}
+
+.leftText {
+    padding: 5%;
+}
+
+.rightText {
+    padding: 5%;
+}
