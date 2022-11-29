@@ -1,4 +1,3 @@
-//import React from 'react';
 import Message from './message';
 import { addMessageActionCreater, updateNewMessageTextActionCreater } from '../../../redux/dialiogsReducer';
 import { connect } from 'react-redux';
@@ -24,5 +23,6 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const MessageContainer = connect(mapStateToProps, mapDispatchToProps)(Message);
+
 
 export default MessageContainer;

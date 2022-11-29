@@ -1,10 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import Friends from './friends/friends';
+import FriendsContainer from './friends/friendsContainer';
 import style from './nav.module.css';
 
-const Nav = (props) => {
-let state = props.store.getState();
+const Nav = () => {
   
   return (
     <nav className={style.nav}>
@@ -37,7 +36,7 @@ let state = props.store.getState();
         <h3 className={style.friends}>
           Друзья
         </h3>
-        <Friends state={state.sideBar.friends} />
+        <FriendsContainer />
       </div>
     </nav>);
 }

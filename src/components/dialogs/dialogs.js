@@ -3,16 +3,15 @@ import style from "./dialogs.module.css";
 import MessageContainer from './message/messageContainer';
 import NamesContainer from './names/namesContainer';
 
-
-const Dialogs = (props) => {
+const Dialogs = () => {
   
   return (
     <div className={style.dialogs}>
       <div>
-        <NamesContainer store={props.store} />
+        <NamesContainer />
       </div>
       <div className={style.dialogItems}>
-        <MessageContainer store={props.store}/>
+        <MessageContainer />
       </div>
     </div>);
 }

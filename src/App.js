@@ -8,16 +8,16 @@ import Music from './components/music/music';
 import Setting from './components/setting/setting'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-const App = (props) => {
+const App = () => {
   return (
     <BrowserRouter>
       <div className="app-wrapper">
         <Header />
-        <Nav store={props.store}/>
+        <Nav />
         <div className='app-content'>
           <Routes>
-            <Route path='/*' element={<Profile store={props.store} />} />
-            <Route path='/dialogs/*' element={<Dialogs store={props.store} />} />
+            <Route path='/*' element={<Profile />} />
+            <Route path='/dialogs/*' element={<Dialogs />} />
             <Route path='/news/*' element={<News />} />
             <Route path='/music/*' element={<Music />} />
             <Route path='/setting/*' element={<Setting />} />
