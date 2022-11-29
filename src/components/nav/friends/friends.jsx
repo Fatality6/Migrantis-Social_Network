@@ -13,7 +13,7 @@ const Friends = (props) => {
 
   const friends = props.state
 
-  const friendsElements = friends.map(d => <FriendItem name={d.name} avatar={d.avatar} />)
+  const friendsElements = friends.map(d => <FriendItem name={d.name} key={d.id} avatar={d.avatar} />)
 
   return (
     <div className={style.friends}>

@@ -20,7 +20,7 @@ const Message = (props) => {
   }
 
   const dialogsItems = props.state
-  const dialogsElements = dialogsItems.map(d => <MessageItem message={d.message} id={d.id} />);
+  const dialogsElements = dialogsItems.map(d => <MessageItem message={d.message} key={d.id} id={d.id} />);
 
   let newMessageElement = React.createRef();
 

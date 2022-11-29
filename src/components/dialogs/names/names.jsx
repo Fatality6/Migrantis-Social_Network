@@ -15,7 +15,7 @@ const Names = (props) => {
 
   const dialogsName = props.state
 
-  const dialogsElements = dialogsName.map(d => <NameItem name={d.name} id={d.id} avatar={d.avatar} />)
+  const dialogsElements = dialogsName.map(d => <NameItem name={d.name} id={d.id} key={d.id} avatar={d.avatar} />)
 
   return (
     <div>
