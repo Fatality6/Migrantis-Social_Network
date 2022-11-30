@@ -1,13 +1,22 @@
+import axios from 'axios';
 import React from 'react';
 import style from "./users.module.css";
+import photoUser from './../../img/user.png';
 
 const Users = (props) => {
+
+if(props.users.length === 0){
+  axios.get('https://social-network.samuraijs.com/api/1.0/users').then( response => {
+    props.setUsers(response.data.items);
+  })
+}
+
     return (
       props.users.map( u => 
       <div className={style.user} key={u.id}>
         <div  className={style.ava}>
           <div className={style.img}>
-            <img src= {u.avatar} />
+            <img src= {u.photos.small ? u.photos.small: photoUser} alt='' />
           </div>
           <div className={style.btn}>
             { u.followed 
@@ -18,11 +27,11 @@ const Users = (props) => {
         <div className={style.info}>
           <div className={style.leftText}>
             <div> {u.name} </div>
-            <div> {u.status} </div>
+            <div> {u.status===null? 'Нет статуса': u.status} </div>
           </div>
           <div className={style.rightText}>
-            <div> {u.location.city} </div>
-            <div> {u.location.country} </div>
+            <div> {'город не указан'} </div>
+            <div> {'страна не указана'} </div>
           </div>
         </div>
       </div> )

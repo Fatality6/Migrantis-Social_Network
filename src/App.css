@@ -16,5 +16,4 @@
 .app-content {
     grid-area: content;
     background-color: rgb(189, 190, 158);
-    height: 2000px;
 }
