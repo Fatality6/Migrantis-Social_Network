@@ -35,3 +35,12 @@
 .rightText {
     padding: 5%;
 }
+
+.unselectedPage{
+    color: white;
+}
+
+.selectedPage {
+    color: rgb(84, 110, 221);
+    font-weight: bold;
+}
