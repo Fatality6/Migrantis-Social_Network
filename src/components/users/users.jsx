@@ -20,8 +20,7 @@ const Users = (props) => {
       <div className={style.pagination}>
         {slicedPages.map(p => {
           return <span className={props.currentPage === p ? style.selectedPage : style.unselectedPage}
-                  onClick={(e) => { props.onPageChanged(p) }} >{p} 
-                 </span>
+                  onClick={(e) => { props.onPageChanged(p) }} >{p} </span>
         })}
       </div>
       {props.users.map(u => {
