@@ -1,5 +1,6 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const SET_USER_PROFILE = 'SET_USER_PROFILE';
 
 let initialState = {
     posts: [
@@ -9,7 +10,8 @@ let initialState = {
     ],
     info:
         { name: 'Олег', years: '34 года', major: 'программист', avatar: 'http://sun9-70.userapi.com/s/v1/if1/nr1D3bBwxix54uj0ylejhuhj40UynsY_AgsKXjl73keyoznveM04--etVqI83NuTPoCkGhcX.jpg?size=200x200&quality=96&crop=0,0,480,480&ava=1' },
-    newPostText: ''
+    newPostText: '',
+    profile: null
 
 };
 
@@ -27,18 +29,26 @@ const profileReducer = (state = initialState, action) => {
                 newPostText: ''
             };
 
-        case UPDATE_NEW_POST_TEXT: 
+        case UPDATE_NEW_POST_TEXT:
             return {
                 ...state,
                 newPostText: action.text
             };
-        
+
+        case SET_USER_PROFILE:
+            return {
+                ...state,
+                profile: action.profile
+            }
+
         default:
             return state;
     }
 }
 
 export const addPostActionCreater = () => ({ type: ADD_POST });
+
+export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile });
 
 export const updateNewPostTextActionCreater = (text) => ({
     type: UPDATE_NEW_POST_TEXT,

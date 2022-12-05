@@ -5,13 +5,23 @@
 .description {
     display: flex;
     justify-content: flex-start;
+    
     padding: 10px;
 }
 
 .description img {
-    width: 100px;
+    width: 100px; 
+}
+
+.box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .text {
-    padding: 20px;
+    color: aliceblue;
+    padding-left: 10%;
+    width: 100%;
+    
 }
