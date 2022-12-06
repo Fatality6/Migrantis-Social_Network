@@ -17,5 +17,9 @@
     font-size: 40px;
     color: aliceblue;
     float: right;                       /*плавающий блок расположение справа*/
-    margin: 7px 20px 0px 0px;           /*отступы для названия*/
+    margin: 7px 100px 0px 0px;           /*отступы для названия*/
+}
+
+.login {
+    float: right;
 }
