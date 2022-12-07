@@ -7,7 +7,7 @@ const Header = (props) => {
         <header className={style.header}>
             <img src='https://www.weareallmigrants.eu/wp-content/uploads/2017/03/LOGO-migrants.jpg' alt="" />
             <div className={style.login}>
-                { props.isAuth ? props.login : <NavLink to={'/login'} >Login</NavLink>}
+                { props.isAuth ? props.login : <NavLink to={'/login'} >Войти</NavLink>}
             </div>
             <div className={style.name}>Migrantis</div>
             
