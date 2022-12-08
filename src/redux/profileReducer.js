@@ -56,17 +56,15 @@ export const updateNewPostTextActionCreater = (text) => ({
 });
 
 //=====thunks=======
-export const getProfile = (userId) => {
-    return (dispatch) => {
-        if (!userId) {
-            userId = '27001';
-        };
+export const getProfile = (userId) => (dispatch) => {
+    if (!userId) {
+        userId = '27001';
+    };
 
-        UsersAPI.getProfile(userId)
-            .then(data => {
-                dispatch(setUserProfile(data));
-            })
-    }
+    UsersAPI.getProfile(userId)
+        .then(data => {
+            dispatch(setUserProfile(data));
+        })
 }
 
 export default profileReducer;

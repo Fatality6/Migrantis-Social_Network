@@ -1,6 +1,6 @@
 import React from 'react';
 import Profile from './profile';
-import { getProfile, setUserProfile } from './../../redux/profileReducer';
+import { getProfile } from './../../redux/profileReducer';
 import { connect } from 'react-redux';
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 
@@ -43,4 +43,4 @@ function withRouter(Component) {
   return ComponentWithRouterProp;
 }
 
-export default connect(mapStateToProps, { setUserProfile, getProfile })(withRouter(ProfileContainer));
+export default connect(mapStateToProps, { getProfile })(withRouter(ProfileContainer));

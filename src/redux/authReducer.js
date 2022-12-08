@@ -35,8 +35,7 @@ export const setAuthUserData = (userId, email, login) => ({
 export const setUser = (user) => ({ type: SET_USER, user });
 
 //=====thunks=======
-export const getAuth = ()=>{
-    return (dispatch) => {
+export const getAuth = ()=>(dispatch) => {
     UsersAPI.getAuth()
         .then(data => {
             if (data.resultCode === 0) {
@@ -49,7 +48,7 @@ export const getAuth = ()=>{
                     )
             }
         })
-}}
+}
 
 
 export default authReducer;
