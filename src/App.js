@@ -8,7 +8,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import UsersContainer from './components/users/usersContainer';
 import ProfileContainer from './components/profile/profileContainer';
 import HeaderContainer from './components/header/headerContainer';
-
+import Login from './components/login/login';
 
 const App = () => {
   return (
@@ -18,8 +18,9 @@ const App = () => {
         <Nav />
         <div className='app-content'>
           <Routes>
+            <Route path='/login/*' element={<Login />} />
             <Route path='/profile/:userId' element={<ProfileContainer />} />
-            <Route path='/profile/' element={<ProfileContainer />} />
+            <Route path='/*' element={<ProfileContainer />} />
             <Route path='/dialogs/*' element={<Dialogs />} />
             <Route path='/news/*' element={<News />} />
             <Route path='/music/*' element={<Music />} />

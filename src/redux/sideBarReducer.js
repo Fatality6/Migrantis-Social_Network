@@ -6,7 +6,7 @@ let initialState = {
     ]
 };
 
-const sideBarReducer = (state = initialState,action) => {
+const sideBarReducer = (state = initialState) => {
 
     return state;
 }

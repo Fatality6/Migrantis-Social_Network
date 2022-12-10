@@ -4,36 +4,38 @@ import FriendsContainer from './friends/friendsContainer';
 import style from './nav.module.css';
 
 const Nav = () => {
-  
+
+  const nameClass = e => e.isActive ? style.active : style.item;
+
   return (
     <nav className={style.nav}>
       <div className={style.link}>
-        <NavLink to="/profile" className={e => e.isActive ? style.active : style.item}>
+        <NavLink to="/profile" className={nameClass}>
           Профиль
         </NavLink>
       </div>
       <div className={style.link}>
-        <NavLink to="/dialogs" className={e => e.isActive ? style.active : style.item}>
+        <NavLink to="/dialogs" className={nameClass}>
           Сообщения
         </NavLink>
       </div>
       <div className={style.link}>
-        <NavLink to="/news" className={e => e.isActive ? style.active : style.item}>
+        <NavLink to="/news" className={nameClass}>
           Новости
         </NavLink>
       </div>
       <div className={style.link}>
-        <NavLink to="/music" className={e => e.isActive ? style.active : style.item}>
+        <NavLink to="/music" className={nameClass}>
           Музыка
         </NavLink>
       </div>
       <div className={style.link}>
-        <NavLink to="/users" className={e => e.isActive ? style.active : style.item}>
+        <NavLink to="/users" className={nameClass}>
           Поиск
         </NavLink>
       </div>
       <div className={style.link}>
-        <NavLink to="/setting" className={e => e.isActive ? style.active : style.item}>
+        <NavLink to="/setting" className={nameClass}>
           Настройки
         </NavLink>
       </div>

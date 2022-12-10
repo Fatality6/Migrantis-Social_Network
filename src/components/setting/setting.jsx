@@ -1,10 +1,10 @@
 import React from 'react';
-import style from "./setting.module.css";
+import style from './setting.module.css';
 
 const Setting = () => {
-    return (
+  return (
     <div className={style.text}>
-      Setting
+      Здесь будет страница 'Настройки'
     </div>);
 }
 

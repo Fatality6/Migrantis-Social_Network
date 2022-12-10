@@ -1,10 +1,10 @@
 import React from 'react';
-import style from "./music.module.css";
+import style from './music.module.css';
 
 const Music = () => {
-    return (
+  return (
     <div className={style.text}>
-      Music
+      Здесь будет страница 'Музыка'
     </div>);
 }
 

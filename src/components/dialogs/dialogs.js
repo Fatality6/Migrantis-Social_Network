@@ -1,4 +1,5 @@
 import React from 'react';
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 import style from "./dialogs.module.css";
 import MessageContainer from './message/messageContainer';
 import NamesContainer from './names/namesContainer';
@@ -16,4 +17,4 @@ const Dialogs = () => {
     </div>);
 }
 
-export default Dialogs;
+export default withAuthRedirect(Dialogs);

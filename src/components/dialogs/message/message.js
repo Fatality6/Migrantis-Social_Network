@@ -3,7 +3,6 @@ import style from './message.module.css';
 
 const Message = (props) => {
 
-
   const MessageItem = (props) => {
 
     if (props.id % 2 === 0) {
@@ -27,10 +26,10 @@ const Message = (props) => {
   let addMessage = () => {
     props.addMessage();
   }
-   
+
   let onMessageChange = () => {
     let text = newMessageElement.current.value;
-    props.updateNewMessageText(text);
+    props.updateNewMessage(text);
   }
 
   return (
