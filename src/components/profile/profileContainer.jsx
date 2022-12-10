@@ -3,8 +3,9 @@ import Profile from './profile';
 import { getProfile } from './../../redux/profileReducer';
 import { connect } from 'react-redux';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
-import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+/* import { withAuthRedirect } from '../../hoc/withAuthRedirect'; */
 import { compose } from 'redux';
+
 
 class ProfileContainer extends React.Component {
 
@@ -17,7 +18,9 @@ class ProfileContainer extends React.Component {
 
     return (
       <div>
-        <Profile {...this.props} profile={this.props.profile} />
+        <Profile {...this.props} 
+        profile={this.props.profile}
+        status={this.props.status} />
       </div>
     );
   }
@@ -25,7 +28,8 @@ class ProfileContainer extends React.Component {
 };
 
 let mapStateToProps = (state) => ({
-  profile: state.profilePage.profile
+  profile: state.profilePage.profile,
+  status: state.profilePage.status
 });
 
 function withRouter(Component) {
@@ -46,6 +50,6 @@ function withRouter(Component) {
 
 export default compose(
   connect(mapStateToProps, { getProfile }),
-  withRouter,
-  withAuthRedirect
+  withRouter
+  /* withAuthRedirect пока плохо работает*/
 )(ProfileContainer);

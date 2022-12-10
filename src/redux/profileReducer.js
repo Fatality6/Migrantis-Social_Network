@@ -3,6 +3,7 @@ import { UsersAPI } from "../api/api";
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
+const SET_STATUS = 'SET_STATUS';
 
 let initialState = {
     posts: [
@@ -13,8 +14,8 @@ let initialState = {
     info:
         { name: 'Олег', years: '34 года', major: 'программист', avatar: 'http://sun9-70.userapi.com/s/v1/if1/nr1D3bBwxix54uj0ylejhuhj40UynsY_AgsKXjl73keyoznveM04--etVqI83NuTPoCkGhcX.jpg?size=200x200&quality=96&crop=0,0,480,480&ava=1' },
     newPostText: '',
-    profile: null
-
+    profile: null,
+    status: null
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -43,6 +44,12 @@ const profileReducer = (state = initialState, action) => {
                 profile: action.profile
             }
 
+        case SET_STATUS:
+            return {
+                ...state,
+                status: action.status
+            }
+
         default:
             return state;
     }
@@ -50,6 +57,7 @@ const profileReducer = (state = initialState, action) => {
 
 export const addPost = () => ({ type: ADD_POST });
 export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile });
+export const setStatus = (status) => ({ type: SET_STATUS, status });
 export const updateNewPostText = (text) => ({
     type: UPDATE_NEW_POST_TEXT,
     text: text
@@ -64,7 +72,12 @@ export const getProfile = (userId) => (dispatch) => {
     UsersAPI.getProfile(userId)
         .then(data => {
             dispatch(setUserProfile(data));
-        })
+        });
+
+    UsersAPI.getStatus(userId)
+    .then(data => {
+        dispatch(setStatus(data));
+    });
 }
 
 export default profileReducer;
