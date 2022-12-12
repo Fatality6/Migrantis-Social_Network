@@ -9,6 +9,7 @@ import ProfileStatus from './profileStatus';
 class ProfileInfo extends React.Component {
 
   render() {
+
     if (this.props.profile == null) {
       return <Preloader />
     }
@@ -22,7 +23,7 @@ class ProfileInfo extends React.Component {
               {this.props.profile.fullName}
             </div>
             <div className={style.text}>
-              <ProfileStatus status={this.props.status}/>
+              <ProfileStatus status={this.props.status} updateStatus={this.props.updateStatus} />
             </div>
             <div className={style.text}>
               {this.props.profile.lookingForAJobDescription}
