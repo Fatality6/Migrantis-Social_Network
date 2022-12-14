@@ -56,3 +56,22 @@ export const ProfileAPI = {
             })
     }
 }
+
+export const AuthAPI = {
+    authorize(formData) {
+        let email = formData.email;
+        let password = formData.password;
+        return instance.post(`auth/login/`, { email, password })
+            .then(response => {
+                return console.log(response);
+            })  
+    
+    },
+
+    exit(){
+        return instance.delete(`auth/login/`)
+            .then(response => {
+                return console.log(response);
+            }) 
+    }
+}

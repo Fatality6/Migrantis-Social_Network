@@ -1,13 +1,13 @@
 import Message from './message';
-import { addMessage, updateNewMessage } from '../../../redux/dialiogsReducer';
+import { addMessage } from '../../../redux/dialiogsReducer';
 import { connect } from 'react-redux';
 import React from 'react';
 import { compose } from 'redux';
 
+
 class MessageContainer extends React.Component {
 
   render() {
-
     return (
       <div>
         <Message {...this.props} />
@@ -18,11 +18,10 @@ class MessageContainer extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    state: state.messagesPage.messages,
-    newMessageText: state.messagesPage.newMessageText
+    state: state.messagesPage.messages
   }
 };
 
 export default compose(
-  connect(mapStateToProps, { addMessage, updateNewMessage }),
+  connect(mapStateToProps, { addMessage }),
 )(MessageContainer);

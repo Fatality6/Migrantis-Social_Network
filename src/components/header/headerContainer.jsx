@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Header from './header';
 import { getAuth, setAuthUserData, setUser } from '../../redux/authReducer';
 import { compose } from 'redux';
-
+import { AuthAPI } from '../../api/api';
 
 class HeaderContainer extends React.Component {
 
@@ -16,12 +16,16 @@ class HeaderContainer extends React.Component {
     }
 }
 
+const del = () => {
+    AuthAPI.exit();
+}
+
 let mapStateToProps = (state) => ({
     login: state.auth.login,
     isAuth: state.auth.isAuth
 });
 
 export default compose(
-    connect(mapStateToProps, { setAuthUserData, setUser, getAuth })
+    connect(mapStateToProps, { setAuthUserData, setUser, getAuth, del })
 )(HeaderContainer);
 

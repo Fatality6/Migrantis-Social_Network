@@ -5,7 +5,7 @@
 
 .item img {
     width: 40px;
-    padding-right:10px;
+    border-radius: 50%;
 }
 
 .text {
