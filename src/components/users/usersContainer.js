@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { follow, getUsers, toggleIsFetching, unfollow } from '../../redux/usersReducer';
 import Users from './users';
 import Preloader from '../common/preloader/preloader';
-import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+//import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 import { compose } from 'redux';
 
 
@@ -46,6 +46,6 @@ const mapStateToProps = (state) => {
 }
 
 export default compose(
-  connect(mapStateToProps, { follow, unfollow, toggleIsFetching, getUsers }),
-  withAuthRedirect
+  connect(mapStateToProps, { follow, unfollow, toggleIsFetching, getUsers })
+  //withAuthRedirect
 )(UsersContainer);

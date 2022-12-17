@@ -1,14 +1,20 @@
-import React from 'react';
-import { reduxForm } from 'redux-form';
-import { AuthAPI } from '../../api/api';
-import LoginForm from './loginForm';
+import React from 'react'
+import { connect } from 'react-redux'
+import { Navigate } from 'react-router-dom'
+import { reduxForm } from 'redux-form'
+import { login } from '../../redux/authReducer'
+import LoginForm from './loginForm'
 
 
-const LoginReduxForm = reduxForm({ form: 'login' })(LoginForm);
+const LoginReduxForm = reduxForm({ form: 'login' })(LoginForm)
 
-const Login = () => {
+const Login = (props) => {
     const onSubmit = (formData) => {
-        AuthAPI.authorize(formData);
+        props.login(formData.email, formData.password, formData.rememberMe)
+    }
+
+    if (props.isAuth) {
+        return <Navigate to='/profile' />
     }
 
     return (
@@ -19,4 +25,8 @@ const Login = () => {
     )
 }
 
-export default Login;
+const mapStateToProps = (state) => ({
+    isAuth: state.auth.isAuth
+})
+
+export default connect(mapStateToProps, { login })(Login)

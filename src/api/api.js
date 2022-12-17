@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from 'axios'
 
 const instance = axios.create({
     withCredentials: true,
@@ -13,65 +13,56 @@ export const UsersAPI = {
     getUsers(currentPage = 1, pageSize = 5) {
         return instance.get(`users?page=${currentPage}&count=${pageSize}`)
             .then(response => {
-                return response.data;
+                return response.data
             })
     },
     getAuth() {
         return instance.get(`auth/me`)
             .then(response => {
-                return response.data;
+                return response.data
             })
     },
     delete(id) {
         return instance.delete(`follow/` + id)
             .then(response => {
-                return response.data;
+                return response.data
             })
     },
     post(id) {
         return instance.post(`follow/` + id)
             .then(response => {
-                return response.data;
+                return response.data
             })
     }
-};
+}
 
 export const ProfileAPI = {
     getProfile(id) {
         return instance.get(`profile/` + id)
             .then(response => {
-                return response.data;
+                return response.data
             })
     },
     getStatus(id) {
         return instance.get(`profile/status/` + id)
             .then(response => {
-                return response.data;
+                return response.data
             })
     },
     updateStatus(status) {
         return instance.put(`profile/status/`, { status: status })
             .then(response => {
-                return response.data;
+                return response.data
             })
     }
 }
 
 export const AuthAPI = {
-    authorize(formData) {
-        let email = formData.email;
-        let password = formData.password;
-        return instance.post(`auth/login/`, { email, password })
-            .then(response => {
-                return console.log(response);
-            })  
-    
+    authorize(email, password, rememberMe) {
+        return instance.post(`auth/login/`, { email, password, rememberMe })
     },
 
-    exit(){
+    exit() {
         return instance.delete(`auth/login/`)
-            .then(response => {
-                return console.log(response);
-            }) 
     }
 }
