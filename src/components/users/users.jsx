@@ -4,7 +4,6 @@ import photoUser from './../../img/user.png';
 import { NavLink } from 'react-router-dom';
 
 const Users = (props) => {
-
   let pagesCount = Math.ceil(props.totalUserCount / props.pageSize); //логика пагинации
   let pages = [];
   for (let i = 1; i <= pagesCount; i++) {
@@ -32,6 +31,7 @@ const Users = (props) => {
                   <img src={u.photos.small ? u.photos.small : photoUser} alt='photoUser' />
                 </div>
               </NavLink>
+              
               <div className={style.btn}>
                 {u.followed
                   ? <button
@@ -40,7 +40,7 @@ const Users = (props) => {
                   </button>
                   : <button
                     disabled={props.followingIsProgress.some(id => id === u.id)}
-                    onClick={() => { props.follow(u.id); }}>добавить
+                    onClick={() => {props.isAuth && props.follow(u.id); }}>добавить
                   </button>
                 }
               </div>
