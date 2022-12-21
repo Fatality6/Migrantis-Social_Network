@@ -1,0 +1,14 @@
+.unselectedPage{
+    color: white;
+}
+
+.selectedPage {
+    color: rgb(84, 110, 221);
+    font-weight: bold;
+}
+
+.pagination{
+    text-align: center;
+    padding-top: 30px;
+    cursor: pointer;
+}

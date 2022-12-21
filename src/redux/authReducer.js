@@ -2,7 +2,7 @@ import { stopSubmit } from "redux-form"
 import { AuthAPI, UsersAPI } from "../api/api"
 
 
-const SET_USER_DATA = 'SET_USER_DATA'
+const SET_USER_DATA = 'auth/SET_USER_DATA'
 
 let initialState = {
     userId: null,
@@ -29,19 +29,16 @@ export const setAuthUserData = (userId, email, login, isAuth) => ({
 })
 
 //=====thunks=======
-export const getAuth = () => (dispatch) => {
-    return UsersAPI.getAuth()
-        .then(data => {
+export const getAuth = () => async (dispatch) => {
+    let data = await UsersAPI.getAuth()
             if (data.resultCode === 0) {
                 let { id, login, email } = data.data;
                 dispatch(setAuthUserData(id, email, login, true))
             }
-        })
 }
 
-export const login = (email, password, rememberMe) => (dispatch) => {
-    AuthAPI.authorize(email, password, rememberMe)
-        .then(response => {
+export const login = (email, password, rememberMe) => async (dispatch) => {
+    let response = await AuthAPI.authorize(email, password, rememberMe)
             if (response.data.resultCode === 0) {
                 dispatch(getAuth())
             } else if (response.data.resultCode === 10) {
@@ -49,18 +46,14 @@ export const login = (email, password, rememberMe) => (dispatch) => {
             } else {
                 dispatch(stopSubmit('login', { _error: 'проверьте данные для входа' }))
             }
-        })
 }
 
-export const logout = () => (dispatch) => {
-    AuthAPI.exit()
-        .then(response => {
+export const logout = () => async (dispatch) => {
+    let response = await AuthAPI.exit()
             if (response.data.resultCode === 0) {
                 dispatch(setAuthUserData(null, null, null, false))
                 dispatch(getAuth())
             }
-        })
 }
-
 
 export default authReducer;

@@ -3,9 +3,9 @@ import { Field, reduxForm } from 'redux-form';
 import style from './message.module.css';
 
 
-const MessageForm = (props) => {
+const MessageForm = ({handleSubmit}) => {
   return (
-    <form onSubmit={props.handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <div>
         <Field placeholder='введите текст' name={'message'} component={'textarea'} />
       </div>
@@ -18,28 +18,28 @@ const MessageForm = (props) => {
 
 const MessageReduxForm = reduxForm({ form: 'message' })(MessageForm);
 
-const Message = (props) => {
+const Message = ({state,addMessage}) => {
 
-  const MessageItem = (props) => {
+  const MessageItem = ({id,message}) => {
 
-    if (props.id % 2 === 0) {
+    if (id % 2 === 0) {
       return (
         <div className={style.messageArea}>
-          <div className={style.itemRigth}>{props.message}</div>
+          <div className={style.itemRigth}>{message}</div>
         </div>)
     } else {
       return (
         <div className={style.messageArea}>
-          <div className={style.itemLeft}>{props.message}</div>
+          <div className={style.itemLeft}>{message}</div>
         </div>)
     }
   }
 
-  const dialogsItems = props.state
+  const dialogsItems = state
   const dialogsElements = dialogsItems.map(d => <MessageItem message={d.message} key={d.id} id={d.id} />);
 
   const onSubmit = (message) => {
-    props.addMessage(message);
+    addMessage(message);
   }
 
   return (
