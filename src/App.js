@@ -1,5 +1,5 @@
+import React, { lazy, Suspense } from 'react'
 import './App.css'
-import Dialogs from './components/dialogs/dialogs'
 import Nav from './components/nav/nav'
 import News from './components/news/news'
 import Music from './components/music/music'
@@ -9,11 +9,11 @@ import UsersContainer from './components/users/usersContainer'
 import ProfileContainer from './components/profile/profileContainer'
 import HeaderContainer from './components/header/headerContainer'
 import Login from './components/login/login'
-import React from 'react'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { initializeApp } from './redux/appReducer'
 import Preloader from './components/common/preloader/preloader'
+const Dialogs = lazy(()=>import('./components/dialogs/dialogs'))
 
 class App extends React.Component {
 
@@ -31,6 +31,7 @@ class App extends React.Component {
           <HeaderContainer />
           <Nav />
           <div className='app-content'>
+            <Suspense fallback={<div>Loading...</div>}>
             <Routes>
               <Route path='/login/*' element={<Login />} />
               <Route path='/profile/:userId' element={<ProfileContainer />} />
@@ -41,6 +42,7 @@ class App extends React.Component {
               <Route path='/setting/*' element={<Setting />} />
               <Route path='/users/*' element={<UsersContainer />} />
             </Routes>
+            </Suspense>
           </div>
         </div>
       </BrowserRouter>

@@ -1,12 +1,18 @@
 import React from 'react';
 import Preloader from '../../common/preloader/preloader';
 import style from "./profileInfo.module.css";
-import photoUser from './../../../img/user.png';
+import photoUser from '../../../img/user.png';
 import ProfileStatus from './profileStatus';
 
 
 
 class ProfileInfo extends React.Component {
+
+  onMainPhotoSelected = (e) => {
+    if(e.target.files.length){
+      this.props.savePhoto(e.target.files[0])
+    }
+  }
 
   render() {
 
@@ -33,6 +39,7 @@ class ProfileInfo extends React.Component {
             </div>
           </div>
         </div>
+        {this.props.isOwner && <input type={'file'} onChange={this.onMainPhotoSelected}/>}
       </div>);
   }
 }

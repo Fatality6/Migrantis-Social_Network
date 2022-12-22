@@ -3,6 +3,7 @@ import { ProfileAPI } from "../api/api"
 const ADD_POST = 'ADD-POST'
 const SET_USER_PROFILE = 'SET_USER_PROFILE'
 const SET_STATUS = 'SET_STATUS'
+const SAVE_PHOTO_SUCCES = 'SAVE_PHOTO_SUCCES'
 
 let initialState = {
     posts: 
@@ -11,13 +12,6 @@ let initialState = {
             { id: '2', message: 'how are you?', likes: 20 },
             { id: '3', message: 'Where are you?', likes: 17 }
         ],
-    info:
-        { 
-            name: 'Олег', 
-            years: '34 года', 
-            major: 'программист', 
-            avatar: 'http://sun9-70.userapi.com/s/v1/if1/nr1D3bBwxix54uj0ylejhuhj40UynsY_AgsKXjl73keyoznveM04--etVqI83NuTPoCkGhcX.jpg?size=200x200&quality=96&crop=0,0,480,480&ava=1' 
-        },
     profile: null,
     status: ''
 }
@@ -47,6 +41,12 @@ const profileReducer = (state = initialState, action) => {
                 status: action.status
             }
 
+        case SAVE_PHOTO_SUCCES:
+            return {
+                ...state,
+                profile: { ...state.profile, photos:action.photos}
+            }
+
         default:
             return state
     }
@@ -55,6 +55,7 @@ const profileReducer = (state = initialState, action) => {
 export const addPost = (post) => ({ type: ADD_POST, post })
 export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile })
 export const setStatus = (status) => ({ type: SET_STATUS, status })
+export const savePhotoSuccess = (photos) => ({ type: SAVE_PHOTO_SUCCES, photos})
 
 
 //=====thunks=======
@@ -72,6 +73,13 @@ export const updateStatus = (status) => async (dispatch) => {
     const data = await ProfileAPI.updateStatus(status)
             if (data.resultCode === 0) {
                 dispatch(setStatus(status))
+            }
+}
+
+export const savePhoto = (file) => async (dispatch) => {
+    const data = await ProfileAPI.savePhoto(file)
+            if (data.resultCode === 0) {
+                dispatch(savePhotoSuccess(data.data.photos))
             }
 }
 

@@ -1,14 +1,31 @@
-.unselectedPage{
-    color: white;
-}
 
-.selectedPage {
-    color: rgb(84, 110, 221);
-    font-weight: bold;
-}
 
 .pagination{
     text-align: center;
     padding-top: 30px;
     cursor: pointer;
 }
+
+.selectedPage {
+    color: rgb(95, 95, 95);
+    font-weight: bold;
+    padding: 5px;
+}
+
+.unselectedPage {
+    padding: 5px;
+    color: white;
+}
+
+.btn {
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    color: white;
+    cursor: pointer;
+    font-size: large;
+}
+
+.unselectedPage:hover,.btn:hover{
+  opacity: 0.5;
+}
+ 
