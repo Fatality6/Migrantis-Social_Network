@@ -1,13 +1,13 @@
 .app-wrapper {
     font-family: roboto, sans-serif;
-    /*установил шрифт*/
-    padding-top: 1px;
-    /*отступ для фиксированной шапки*/
-    margin: auto;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    
     display: grid;
-    width: 1200px;
+   
     grid-template-areas:
-        "header header header"
+        "nav header header"
         "nav content content";
     grid-template-rows: 60px 1fr;
     grid-template-columns: 2fr 10fr;
@@ -15,5 +15,8 @@
 
 .app-content {
     grid-area: content;
-    background-color: rgb(189, 190, 158);
+    background-color: #313131;
+    height: 100vh;
+    width: 100%;
+    color: #ffffff;
 }

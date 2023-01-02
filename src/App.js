@@ -1,6 +1,5 @@
 import React, { lazy, Suspense } from 'react'
 import './App.css'
-import Nav from './components/nav/nav'
 import News from './components/news/news'
 import Music from './components/music/music'
 import Setting from './components/setting/setting'
@@ -13,6 +12,7 @@ import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { initializeApp } from './redux/appReducer'
 import Preloader from './components/common/preloader/preloader'
+import NavContainer from './components/nav/navContainer'
 const Dialogs = lazy(()=>import('./components/dialogs/dialogs'))
 
 class App extends React.Component {
@@ -29,7 +29,7 @@ class App extends React.Component {
       <BrowserRouter>
         <div className="app-wrapper">
           <HeaderContainer />
-          <Nav />
+          <NavContainer />
           <div className='app-content'>
             <Suspense fallback={<div>Loading...</div>}>
             <Routes>

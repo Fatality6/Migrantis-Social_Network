@@ -2,18 +2,19 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import FriendsContainer from './friends/friendsContainer';
 import style from './nav.module.css';
+import ProfileBar from './profileBar/profileBar';
 
-const Nav = () => {
+const Nav = ({isAuth, logout, profile}) => {
 
   const nameClass = e => e.isActive ? style.active : style.item;
 
   return (
     <nav className={style.nav}>
-      <div className={style.link}>
-        <NavLink to="/profile" className={nameClass}>
-          Профиль
-        </NavLink>
-      </div>
+      <div className={style.login}>
+                <ProfileBar profile={profile} isAuth={isAuth} logout={logout} /> 
+            </div>
+            <div className={style.line}></div>
+      <div className={style.menu}>
       <div className={style.link}>
         <NavLink to="/dialogs" className={nameClass}>
           Сообщения
@@ -39,6 +40,8 @@ const Nav = () => {
           Настройки
         </NavLink>
       </div>
+      </div>
+      <div className={style.line}></div>
       <div className={style.linkFriends}>
         <h3 className={style.friends}>
           Друзья

@@ -1,27 +1,56 @@
 .nav {
     grid-area: nav;
-    background-color: #689c5f;
+    background-color: #08080a;
 
+}
+
+.menu {
+    margin-left: -40px;
+}
+
+.line {
+    height: 1px;
+    border-bottom: 1px solid #313131;
+    margin: 20px;
+}
+
+.login {
+    color:#FFFFFF;
 }
 
 .item {
     font-size: 24px;
     color: #FFFFFF;
     text-decoration: none;
+    padding-left: 50px;
+    padding-right: 10px;
+    border-radius: 30px;
+    transition: .5s;
 }
 
 .active {
     font-size: 24px;
-    color: #4db1f4;
+    color: #FFFFFF;
     text-decoration: none;
+    padding-left: 80px;
+    padding-right: 10px;
+    background: #07b38d;
+    border-radius: 30px;
+    transition: .5s;
 }
 
+.item:hover {
+    background: #313131;
+}
+
+
 .link {
-    margin: 10px 0 0 20px;
+    margin: 30px 0 0 20px;
 }
 
 .friends {
+    text-align: center;
     font-size: 24px;
     color: #FFFFFF;
-    margin: 40px 0 0 50px;
+    margin: 20px 0 0 0;
 }

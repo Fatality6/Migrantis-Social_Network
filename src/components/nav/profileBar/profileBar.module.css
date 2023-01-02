@@ -1,0 +1,47 @@
+.wrapper {
+    display: flex;
+    padding-top: 10px;
+    align-items: center;
+    justify-content: baseline;
+    flex-direction: column;
+    height: 100px;
+}
+
+.avatar img {
+    margin: 10px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    transition: .5s;
+}
+
+.avatar img:hover {
+    border: #313131 5px solid;
+}
+
+.fullName {
+    font-size: 15px;
+    padding-left: 5px;
+}
+
+.signIn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+.btn {
+    font-size: 20px;
+    padding: 10px;
+    background: #18cba4;
+    color:#ffffff;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.active img{
+    border: #18cba4 5px solid;
+    /* transition: .5s; */
+}

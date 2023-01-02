@@ -3,11 +3,13 @@
 .pagination{
     text-align: center;
     padding-top: 30px;
+    padding-bottom: 20px;
     cursor: pointer;
 }
 
 .selectedPage {
-    color: rgb(95, 95, 95);
+    color: #07b38d;
+    font-size: 20px;
     font-weight: bold;
     padding: 5px;
 }

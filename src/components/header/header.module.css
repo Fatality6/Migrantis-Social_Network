@@ -1,9 +1,6 @@
 .header {
-    width: 1200px;
     grid-area: header;
-    background-color: rgb(79, 178, 224);
-    position: fixed;                    /*фиксированная позиция*/
-    top: 0;                             /*без отступа сверху*/
+    background-color: #242426;
 }
 
 .header img {
@@ -15,11 +12,7 @@
 
 .name {
     font-size: 40px;
-    color: aliceblue;
-    float: right;                       /*плавающий блок расположение справа*/
-    margin: 7px 100px 0px 0px;           /*отступы для названия*/
-}
-
-.login {
-    float: right;
+    color: #18cba4;
+    float: left;                       /*плавающий блок расположение справа*/
+    margin: 7px 0px 0px 25px;           /*отступы для названия*/
 }

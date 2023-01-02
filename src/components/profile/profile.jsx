@@ -4,17 +4,19 @@ import MypostsContainer from './myPosts/mypostsContainer';
 import ProfileInfo from './profileInfo/profileInfo';
 
 
-const Profile = (props) => {
+const Profile = ({savePhoto, isOwner, profile, status, updateStatus, logout, saveProfile}) => {
   return (
     <div>
       <ProfileInfo
-        savePhoto={props.savePhoto}
-        isOwner={props.isOwner}
-        profile={props.profile}
-        status={props.status}
-        updateStatus={props.updateStatus} 
+        savePhoto={savePhoto}
+        isOwner={isOwner}
+        profile={profile}
+        status={status}
+        updateStatus={updateStatus} 
+        logout={logout}
+        saveProfile={saveProfile}
       />
-      <MypostsContainer profile={props.profile}/>
+      <MypostsContainer profile={profile}/>
     </div>);
 }
 

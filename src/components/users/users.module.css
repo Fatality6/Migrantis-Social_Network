@@ -1,38 +1,78 @@
-.user {
+.usersWrapper {
     display: flex;
-    justify-content: center;
-    margin: 20px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.user {
+    margin: 10px; 
 }
 
 .ava {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    position: relative;
     padding-right: 20px;
 }
 
 .img img{
-    width: 70px;
-    border-radius: 50%;
+    width: 150px;
+    border-radius: 20px;
+    transition: .3s;
 }
 
 .btn {
-    color: blueviolet;
+    position: absolute;
+    top: 70%;
+    left: 35%;
+}
+
+.btn button {
+    background-color: #07b38d;
+    border: none;
+    border-radius: 30px;
+    color: #FFFFFF;
+    padding: 5px;
+    cursor: pointer;
+    opacity: 0;
+    transition: .3s;
 }
 
 .info {
-    display: flex;
-    width: 50%;
-    background-color: rgba(117, 117, 124, 0.548);
-    justify-content: space-between;
+    width: 160px;
+    height: 200px;
     border-radius: 20px;
+    padding-bottom: 10px;
+    word-wrap: break-word;
 }
 
-.leftText {
-    padding: 5%;
+
+.info:hover img {
+    width: 120%;
+    height: 120%;
+    box-shadow: 10px 5px 5px rgb(20, 20, 20);
+    transition: .3s;
 }
 
-.rightText {
+.info:hover button {
+    opacity: 100;
+    transition: .3s;
+}
+
+.userName {
     padding: 5%;
+    font-size: 15px;
+    max-width: 100px;
+}
+
+.status {
+    font-size: 12px;
+    color: rgb(154, 154, 155);
+    padding-left: 5%;
+    height: 100px;
+    max-height: 100px;
+    overflow-x:hidden;
+}
+
+.textInfo {
+    height: 50px;
+    max-height: 50px;
 }

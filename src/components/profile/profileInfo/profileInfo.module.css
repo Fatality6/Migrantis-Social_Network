@@ -1,28 +1,33 @@
-.content img {
-    width: 100%;
-}
-
 .description {
     display: flex;
     justify-content: flex-start;
-    
     padding: 10px;
 }
 
 .description img {
-    width: 100px; 
-    border-radius: 50%;
+    min-width: 200px; 
+    border-radius: 20px;
 }
 
 .box{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    padding: 10px;
 }
 
 .text {
     color: aliceblue;
     padding-left: 10%;
     width: 100%;
-    
+    padding: 5px;
+}
+
+.status {
+    display: flex;
+    padding: 10px;
+
+}
+
+.statusInput {
+    padding-left: 10px;
 }
