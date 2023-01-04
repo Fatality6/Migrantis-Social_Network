@@ -8,9 +8,9 @@ import LoginForm from './loginForm'
 
 const LoginReduxForm = reduxForm({ form: 'login' })(LoginForm)
 
-const Login = ({login, isAuth}) => {
+const Login = ({login, isAuth, captcha}) => {
     const onSubmit = (formData) => {
-        login(formData.email, formData.password, formData.rememberMe)
+        login(formData.email, formData.password, formData.rememberMe, formData.captcha)
     }
 
     if (isAuth) {
@@ -20,13 +20,14 @@ const Login = ({login, isAuth}) => {
     return (
         <div>
             <h1>Вход</h1>
-            <LoginReduxForm onSubmit={onSubmit} />
+            <LoginReduxForm onSubmit={onSubmit} captcha={captcha}/>
         </div>
     )
 }
 
 const mapStateToProps = (state) => ({
-    isAuth: state.auth.isAuth
+    isAuth: state.auth.isAuth,
+    captcha: state.auth.captchaUrl
 })
 
 export default connect(mapStateToProps, { login })(Login)

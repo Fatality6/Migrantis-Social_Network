@@ -4,7 +4,7 @@ import { maxLength30, required } from '../../utils/validators/validators'
 import { Input } from '../common/FormsControl/FormsControls'
 import style from './login.module.css'
 
-const LoginForm = ({handleSubmit, error}) => {
+const LoginForm = ({handleSubmit, error, captcha}) => {
     return (
         <form onSubmit={handleSubmit}>
             <div>
@@ -17,6 +17,14 @@ const LoginForm = ({handleSubmit, error}) => {
                 <Field component={'input'} name={'rememberMe'} type="checkbox" /> запомнить меня
             </div>
             <div className={style.formError}>{error}</div>
+            {captcha && 
+            <div>
+                <img src={captcha} alt='captcha'/>
+            </div>}
+            {captcha && 
+            <div>
+                <Field placeholder='captcha' name={'captcha'} component={Input} validate={[required]} />
+            </div>}
             <div>
                 <button>Войти</button>
             </div>

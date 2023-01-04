@@ -8,13 +8,17 @@ import ProfileDataForm from './profileDataForm';
 
 
 
-const ProfileInfo = ({savePhoto, isOwner, profile, status, updateStatus, logout, saveProfile}) => {
+const ProfileInfo = ({ savePhoto, isOwner, profile, status, updateStatus, logout, saveProfile }) => {
 
   const [editMode, setEditMode] = useState(false)
 
   const onSubmit = (formData) => {
-    saveProfile(formData)
-}
+    saveProfile(formData).then(
+      () => {
+        setEditMode(false)
+      }
+    )
+  }
 
 
   const onMainPhotoSelected = (e) => {
@@ -29,16 +33,19 @@ const ProfileInfo = ({savePhoto, isOwner, profile, status, updateStatus, logout,
 
   return <>
     <div className={style.content}>
-      <div className={style.description}>
+      <div htmlFor='input__file' className={style.description}>
         <img src={profile.photos.large ? profile.photos.large : photoUser} alt='' />
 
-        { editMode 
-          ? <ProfileDataForm  profile={profile}
-                              onSubmit={onSubmit}/> 
-          : <ProfileData  profile={profile} 
-                          isOwner={isOwner} 
-                          onEditMode={()=>{setEditMode(true)}}/>
-        }
+        {editMode &&
+        <ProfileDataForm initialValues={profile}
+            onSubmit={onSubmit}
+            profile={profile} 
+            onEditMode={() => { setEditMode(false) }} 
+            editMode={editMode}/>}
+        <ProfileData profile={profile}
+            isOwner={isOwner}
+            onEditMode={() => { setEditMode(true) }} />
+        
 
       </div>
     </div>
@@ -48,18 +55,24 @@ const ProfileInfo = ({savePhoto, isOwner, profile, status, updateStatus, logout,
         <ProfileStatus status={status} updateStatus={updateStatus} />
       </div>
     </div>
-    <div>
-      {isOwner && <input type={'file'} onChange={onMainPhotoSelected} />}
-    </div>
+    
+      {isOwner && 
+    
+    <div className={style.inputWrapper}>
+      <input name="file" type="file" id="input__file" className={style.inputPhoto} onChange={onMainPhotoSelected}/>
+      <label htmlFor='input__file' className={style.label}>
+        Изменить аватар
+      </label>
+    </div>}
     <div>
       <button onClick={logout} className={style.btn}>выйти</button>
     </div>
   </>;
 }
 
-const ProfileData = ({profile, isOwner, onEditMode}) => {
-  
-  return (
+const ProfileData = ({ profile, isOwner, onEditMode }) => {
+
+  return <>
     <div className={style.box}>
       {isOwner &&
         <div>
@@ -78,20 +91,17 @@ const ProfileData = ({profile, isOwner, onEditMode}) => {
       <div className={style.text}>
         <b>Обо мне : </b>{profile.aboutMe}
       </div>
-      <div className={style.text}>
-        <b>Мои контакты : </b>{Object.keys(profile.contacts).map(key => {
-          return <Contact key={key} title={key} value={profile.contacts[key]} />
-        })}
-      </div>
-      <div className={style.text}>
-        {profile.contacts.vk}
-      </div>
     </div>
-  )
+    <div className={style.text + ' ' + style.contacts}>
+      <b>Мои контакты : </b>{Object.keys(profile.contacts).map(key => {
+        return <Contact key={key} title={key} value={profile.contacts[key]} />
+      })}
+    </div>
+  </>
 }
 
-const Contact = ({title, value}) => {
-  return <div><b>{title}</b> : {value}</div>
+const Contact = ({ title, value }) => {
+  return <div><b>{title}</b> : {value ? value : 'нет'}</div>
 }
 
 export default ProfileInfo;

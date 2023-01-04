@@ -1,7 +1,7 @@
 .nav {
     grid-area: nav;
     background-color: #08080a;
-
+    min-height: 100vh;
 }
 
 .menu {
