@@ -1,38 +1,109 @@
 .description {
     display: flex;
     padding: 10px;
-    align-items: center;
-    flex-wrap: nowrap;
-    justify-content: space-around;
+    height: 100px;
 }
 
 .description img {
+    position: relative;
     width: 200px; 
     height: 200px;
-    border-radius: 20px;
+    border-radius: 50%;
+    bottom: 100px;
+    margin-left: 50px;
 }
 
-.box{
+.label img {
+    position: relative;
+    left: 35%;
+    bottom: 135px;
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+    transition: 0.5s;
+} 
+
+.label img:hover {
+    background-color: #88888891;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.inputPhoto {
+    display: none;
+}
+
+.description button:hover {
+    background-color: rgb(187, 187, 187);
+    transition: .5s;
+}
+
+.more {
+    position: relative;
+    left: 45%;
+}
+
+.editProffile {
+    position: relative;
+    left: 45%;
+    margin-right: 10px;
+}
+
+.editProffile button {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #07b38d;
+    border: none;
+    color:#fff;
+    font-size: 20px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.more button {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #888888;
+    color:#fff;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.profileInfo {
     display: flex;
     flex-direction: column;
-    padding: 10px;
+    padding-left: 30px;
+}
+
+.fullName {
+    font-size: 30px;
+    padding-left: 4%;
+
+}
+
+.status {
+    padding:1% 4%;
+    cursor: pointer;
+    max-width: 150px;
+    border-radius: 5px;
+    transition: .5s;
+} 
+
+ .status:hover {
+    background-color: #88888891;
+    transition: .5s;
+}
+
+.box {
+    padding-top: 40px;
 }
 
 .text {
     color: aliceblue;
     padding-left: 10%;
-    width: 100%;
     padding: 5px;
-}
-
-.status {
-    display: flex;
-    padding: 10px;
-
-}
-
-.statusInput {
-    padding-left: 10px;
 }
 
 .formError {
@@ -45,16 +116,7 @@
     width: 30%;
 }
 
-.inputPhoto {
-    display: none;
-}
 
-.label {
-    cursor: pointer;
-    border: 1px white solid;
-    border-radius: 5px;
-    padding: 5px;
-}
 
 .bgModal {
     position: fixed;
@@ -62,11 +124,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.774);
+    background: rgba(0, 0, 0, 0.418);
 }
 
-.popup {
-    background-color: rgb(203, 204, 204);
+.popup form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(180, 180, 180);
     padding: 20px;
     border-radius: 10px;
 }

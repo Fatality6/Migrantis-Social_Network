@@ -11,7 +11,7 @@ const ProfileDataForm = ({ handleSubmit, profile, error, onEditMode, editMode })
     <Dialog open={editMode} onClose={onEditMode}>
       <div className={style.bgModal}>
         <Dialog.Panel className={style.popup}>
-          <Dialog.Title>Редактирование профиля</Dialog.Title>
+          
           <form onSubmit={handleSubmit}>
             <div>
               <button>сохранить</button>

@@ -1,0 +1,14 @@
+.bg {
+    position: relative;
+    overflow:hidden;
+    width: 100%;
+    height: 200px;
+}
+
+.bg img {
+    position: absolute;
+    /* transform:translate(0,-20%); */
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+}

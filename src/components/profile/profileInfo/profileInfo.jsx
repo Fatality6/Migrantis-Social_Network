@@ -20,7 +20,6 @@ const ProfileInfo = ({ savePhoto, isOwner, profile, status, updateStatus, logout
     )
   }
 
-
   const onMainPhotoSelected = (e) => {
     if (e.target.files.length) {
       savePhoto(e.target.files[0])
@@ -32,66 +31,70 @@ const ProfileInfo = ({ savePhoto, isOwner, profile, status, updateStatus, logout
   }
 
   return <>
-    <div className={style.content}>
-      <div htmlFor='input__file' className={style.description}>
-        <img src={profile.photos.large ? profile.photos.large : photoUser} alt='' />
-
-        {editMode &&
-        <ProfileDataForm initialValues={profile}
-            onSubmit={onSubmit}
-            profile={profile} 
-            onEditMode={() => { setEditMode(false) }} 
-            editMode={editMode}/>}
-        <ProfileData profile={profile}
-            isOwner={isOwner}
-            onEditMode={() => { setEditMode(true) }} />
+    <div className={style.description}>
+      <div>
+        <img src={profile.photos.large ? profile.photos.large : photoUser} alt='photoUser' />
         
-
+          {isOwner &&
+            <div className={style.camera}>
+              <input name="file" type="file" id="input__file" className={style.inputPhoto} onChange={onMainPhotoSelected} />
+              <label htmlFor='input__file' className={style.label}>
+                <img src='https://www.gstatic.com/images/icons/material/system/2x/photo_camera_white_24dp.png' alt='camera' />
+              </label>
+            </div>}
+        
+      </div>
+      <div className={style.editProffile}>
+        <button onClick={() => { setEditMode(true) }}>Редактировать профиль</button>
+      </div>
+      <div className={style.more}>
+        <button onClick={logout}>Выйти</button>
       </div>
     </div>
-    <div className={style.status}>
-      <div><b>Статус : </b></div>
-      <div className={style.statusInput}>
+
+    <div className={style.profileInfo}>
+      <div className={style.fullName}>
+        <b>{profile.fullName}</b>
+      </div>
+
+      <div className={style.status}>
         <ProfileStatus status={status} updateStatus={updateStatus} />
       </div>
+
+      <div className={style.box}>
+        <div className={style.text}>
+          <b>В поисках работы : </b>{profile.lookingForAJob ? 'Да' : 'Нет'}
+        </div>
+        {profile.lookingForAJob &&
+          <div className={style.text}>
+            <b>Что я умею : </b>{profile.lookingForAJobDescription}
+          </div>}
+        <div className={style.text}>
+          <b>Обо мне : </b>{profile.aboutMe}
+        </div>
+      </div>
+
     </div>
-    
-      {isOwner && 
-    
-    <div className={style.inputWrapper}>
-      <input name="file" type="file" id="input__file" className={style.inputPhoto} onChange={onMainPhotoSelected}/>
-      <label htmlFor='input__file' className={style.label}>
-        Изменить аватар
-      </label>
-    </div>}
+
     <div>
-      <button onClick={logout} className={style.btn}>выйти</button>
+      {editMode &&
+        <ProfileDataForm initialValues={profile}
+          onSubmit={onSubmit}
+          profile={profile}
+          onEditMode={() => { setEditMode(false) }}
+          editMode={editMode} />}
+      <ProfileData profile={profile}
+        isOwner={isOwner} />
     </div>
+
+
+
   </>;
 }
 
 const ProfileData = ({ profile, isOwner, onEditMode }) => {
 
   return <>
-    <div className={style.box}>
-      {isOwner &&
-        <div>
-          <button onClick={onEditMode}>редактировать</button>
-        </div>}
-      <div className={style.text}>
-        <b>Ник : </b>{profile.fullName}
-      </div>
-      <div className={style.text}>
-        <b>В поисках работы : </b>{profile.lookingForAJob ? 'Да' : 'Нет'}
-      </div>
-      {profile.lookingForAJob &&
-        <div className={style.text}>
-          <b>Что я умею : </b>{profile.lookingForAJobDescription}
-        </div>}
-      <div className={style.text}>
-        <b>Обо мне : </b>{profile.aboutMe}
-      </div>
-    </div>
     <div className={style.text + ' ' + style.contacts}>
       <b>Мои контакты : </b>{Object.keys(profile.contacts).map(key => {
         return <Contact key={key} title={key} value={profile.contacts[key]} />
