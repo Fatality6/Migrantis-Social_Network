@@ -23,3 +23,5 @@
 - jest
 
 - React.lazy, React.suspense
+
+- async/await
