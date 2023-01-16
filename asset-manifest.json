@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/Migrantis-React-App/static/css/main.f9ce3f42.css",
+    "main.js": "/Migrantis-React-App/static/js/main.d3407317.js",
+    "static/css/363.e6771cb7.chunk.css": "/Migrantis-React-App/static/css/363.e6771cb7.chunk.css",
+    "static/js/363.72a9b251.chunk.js": "/Migrantis-React-App/static/js/363.72a9b251.chunk.js",
+    "static/media/user.jpg": "/Migrantis-React-App/static/media/user.48e1456c67b457a7e18f.jpg",
+    "index.html": "/Migrantis-React-App/index.html",
+    "main.f9ce3f42.css.map": "/Migrantis-React-App/static/css/main.f9ce3f42.css.map",
+    "main.d3407317.js.map": "/Migrantis-React-App/static/js/main.d3407317.js.map",
+    "363.e6771cb7.chunk.css.map": "/Migrantis-React-App/static/css/363.e6771cb7.chunk.css.map",
+    "363.72a9b251.chunk.js.map": "/Migrantis-React-App/static/js/363.72a9b251.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f9ce3f42.css",
+    "static/js/main.d3407317.js"
+  ]
+}
