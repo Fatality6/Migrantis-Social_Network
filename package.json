@@ -1,6 +1,7 @@
 {
   "name": "my-app",
   "version": "0.1.0",
+  "homepage": "https://fatality6.github.io/Migrantis-React-App",
   "private": true,
   "dependencies": {
     "@headlessui/react": "^1.7.7",
@@ -10,7 +11,7 @@
     "axios": "^1.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-redux": "^8.0.5",
+    "react-redux": "^7.2.9",
     "react-router-dom": "^6.4.3",
     "react-scripts": "5.0.1",
     "redux": "^4.2.0",
@@ -23,7 +24,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -42,5 +45,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
   }
 }
